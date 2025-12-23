@@ -7,7 +7,7 @@ from colorama import Fore, Style
 LANGS = ['Fortran']
 
 def print_usage():
-    print(f"python3 {sys.argv[0]} [solution|template] {verbose} {stop}")
+    print(f"python3 {sys.argv[0]} [solution|template] {{verbose}} {{stop}}")
     exit(0)
 
 def run_tests(tests, filename, verbose, stop):

@@ -14,6 +14,9 @@ else
   FFLAGS := -O3
 endif
 
+LINK_FLAGS := -L../../../../.libraries/Fortran/lib  -lmylib  -Wl,-rpath,../../../../.libraries/Fortran/lib
+INCLUDE_FLAGS := -I../../../../.libraries/Fortran
+
 # =========================
 # Select implementation
 # =========================
@@ -43,13 +46,13 @@ all: clean $(TARGET)
 # Link
 # =========================
 $(TARGET): $(OBJS)
-	$(FC) $(OBJS) -o $@
+	$(FC)  $(OBJS) $(LINK_FLAGS) -o $@
 
 # =========================
 # Compile
 # =========================
 %.o: %.f90
-	$(FC) $(FFLAGS) -c $< -o $@
+	$(FC) $(FFLAGS) $(INCLUDE_FLAGS) -c $< -o $@
 
 # =========================
 # Run

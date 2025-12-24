@@ -10,6 +10,15 @@ def print_usage():
     print(f"python3 {sys.argv[0]} [solution|template] {{verbose}} {{stop}}")
     exit(0)
 
+def generate_shared_libs():
+    os.chdir('.libraries')
+    for lang in LANGS:
+        os.chdir(f'{lang}')
+        subprocess.run(['make'])
+        os.chdir('..')
+    os.chdir('..')
+
+
 def run_tests(tests, filename, verbose, stop):
     for i in range(len(tests)):
         test = tests[i]
@@ -69,6 +78,8 @@ def main():
         stop = True
 
     filename=sys.argv[1]
+
+    generate_shared_libs()
 
     directories = [x  for x in os.listdir('.') if os.path.isdir(x) and x[0] != '.' ]
 

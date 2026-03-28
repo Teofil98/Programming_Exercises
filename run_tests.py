@@ -4,7 +4,7 @@ import json
 import subprocess
 from colorama import Fore, Style
 
-LANGS = ['Fortran']
+LANGS = ['C', 'Fortran']
 
 def print_usage():
     print(f"python3 {sys.argv[0]} [solution|template] {{verbose}} {{stop}}")
@@ -99,6 +99,7 @@ def main():
             # navigate to each language
             for lang in LANGS:
                 os.chdir('./src/' + lang)
+                print(f"******* {lang} *******")
 
                 run_tests(tests, filename, verbose, stop)
 

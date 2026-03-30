@@ -14,9 +14,8 @@ else
   CFLAGS := -O3
 endif
 
-#LINK_FLAGS := -L../../../../.libraries/C/lib  -lmylib  -Wl,-rpath,../../../../.libraries/C/lib
-LINK_FLAGS := -L../../../../.libraries/C/lib
-INCLUDE_FLAGS := -I../../../../.libraries/C
+LINK_FLAGS := -L../../../../.libraries/C/lib  -lmylib  -Wl,-rpath,../../../../.libraries/C/lib
+INCLUDE_FLAGS := -I../../../../.libraries/C/include
 
 # =========================
 # Select implementation

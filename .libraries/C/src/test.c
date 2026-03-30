@@ -1,29 +1,31 @@
-#include "../include/linked_list.h"
+#include "../include/hash_table.h"
 
 int main()
 {
-    linked_list_t ll;
-    linked_list_init(&ll);
+    hash_table_t ht;
+    hash_table_init(&ht, 4, &simple_hash);
 
-    linked_list_insert(&ll, 1);
-    linked_list_print(&ll);
+    hash_table_insert(&ht, 1);
+    hash_table_print(&ht);
 
-    linked_list_insert(&ll, 2);
-    linked_list_print(&ll);
+    hash_table_insert(&ht, 2);
+    hash_table_print(&ht);
 
-    linked_list_insert(&ll, 3);
-    linked_list_print(&ll);
+    hash_table_insert(&ht, 3);
+    hash_table_print(&ht);
 
-    linked_list_delete(&ll, 2);
-    linked_list_print(&ll);
+    hash_table_delete(&ht, 2);
+    hash_table_print(&ht);
 
-    linked_list_delete(&ll, 1);
-    linked_list_print(&ll);
 
-    linked_list_delete(&ll, 3);
-    linked_list_print(&ll);
+    hash_table_insert(&ht, 4);
+    hash_table_insert(&ht, 5);
+    hash_table_insert(&ht, 6);
+    hash_table_insert(&ht, 6);
+    hash_table_insert(&ht, 8);
 
-    linked_list_destroy(&ll);
+    hash_table_print(&ht);
+    hash_table_destroy(&ht);
 
     return 0;
 }

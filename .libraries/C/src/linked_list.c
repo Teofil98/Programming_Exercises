@@ -38,7 +38,7 @@ void linked_list_print(const linked_list_t* ll)
 void linked_list_delete(linked_list_t* ll, int64_t val)
 {
     ll_node_t* curr = ll->head;
-    ll_node_t* prev;
+    ll_node_t* prev = NULL;
     while(curr != NULL && curr->value != val) {
         prev = curr;
         curr = curr->next;
@@ -56,9 +56,7 @@ void linked_list_delete(linked_list_t* ll, int64_t val)
 
 bool linked_list_search(const linked_list_t *ll, int64_t val) {
     ll_node_t* curr = ll->head;
-    ll_node_t* prev;
     while(curr != NULL && curr->value != val) {
-        prev = curr;
         curr = curr->next;
     }
 
